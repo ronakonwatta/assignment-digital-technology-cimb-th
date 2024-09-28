@@ -12,10 +12,24 @@ public class Q2 {
 
     protected String removeZeroAfterDot(String version) {
         Character zero = Character.valueOf('0');
+        Character dot = Character.valueOf('.');
+        boolean isDot = false;
         String newVersion = "";
+
         for (int i = 0; i < version.length(); i++) {
-            if (version.charAt(0) != zero && zero.compareTo(version.charAt(i)) == 0)
+
+            if (zero.compareTo(version.charAt(i)) == 0)
                 continue;
+
+            if (dot.compareTo(version.charAt(i)) == 0)
+                isDot = true;
+
+            if(isDot == true)
+            {
+                isDot = false;
+                continue;
+            }
+
             newVersion = newVersion + version.charAt(i);
         }
 
